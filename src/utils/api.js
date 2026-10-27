@@ -1,4 +1,15 @@
-const BASE_URL = import.meta.env.VITE_APP_SCRIPT_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
+const ALLOWED_HOST = 'script.google.com'
+const BASE_URL = (() => {
+  const url = import.meta.env.VITE_APP_SCRIPT_URL || ''
+  try {
+    const parsed = new URL(url)
+    if (parsed.hostname !== ALLOWED_HOST) throw new Error('Invalid host')
+    return url
+  } catch {
+    console.warn('VITE_APP_SCRIPT_URL invalid or missing')
+    return ''
+  }
+})()
 
 const getToken = () => localStorage.getItem('token')
 

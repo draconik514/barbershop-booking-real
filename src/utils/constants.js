@@ -12,7 +12,7 @@ export const STATUS_COLORS = {
 }
 
 export const STATUS_LABELS = {
-  pending: '⏳ Menunggu',
-  completed: '✓ Selesai',
-  cancelled: '✗ Dibatalkan',
+  pending: 'Menunggu',
+  completed: 'Selesai',
+  cancelled: 'Dibatalkan',
 }
